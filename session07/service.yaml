@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-kube-1-svc
+spec:
+  selector:
+    app: hello-kube-1
+  ports:
+    - port: 80
+      targetPort: 80

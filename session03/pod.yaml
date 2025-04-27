@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: hello-kube
+
+spec:
+  containers:
+    - name: web
+      image: aaghamohammadi/hello_kube:1.0.0
