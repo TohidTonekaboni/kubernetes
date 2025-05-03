@@ -5,7 +5,8 @@ This guide helps students learn to use ConfigMap with the help of Volumes in Kub
 ---
 
 ## Steps
-
+kubectl create configmap redis-config --from-file=configmap/redis.conf
+kubectl describe cm redis-config
 ### 1. Create a ConfigMap for Redis Configuration
 
 Apply the ConfigMap to the cluster:
