@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: redis-data-loader
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      initContainers:
+        - name: wait-for-primary
+          image: busybox:1.36
+          command: ['sh', '-c', 'until nslookup redis-0.redis-svc.default.svc.cluster.local; do echo "Waiting for Redis primary..."; sleep 2; done']
+      containers:
+        - name: data-loader
+          image: redis:7.4
+          command: 
+            - bash
+            - "-c"
+            - |
+              redis-cli -h redis-0.redis-svc.default.svc.cluster.local SET capital:IRAN "Tehran"
+              redis-cli -h redis-0.redis-svc.default.svc.cluster.local SET capital:UK "London"
