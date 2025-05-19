@@ -1,0 +1,5 @@
+apiVersion: v2
+name: redis
+description: A Helm chart for a Redis StatefulSet with one primary and multiple replicas.
+version: 0.1.0
+appVersion: "7.4"
